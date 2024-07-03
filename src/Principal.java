@@ -1,10 +1,8 @@
 import Conversor.models.ConversaoDeMoeda;
-
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Principal {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
         int option = 0;
         ConversaoDeMoeda coin = new ConversaoDeMoeda();
 
@@ -25,40 +23,45 @@ public class Principal {
         System.out.println(menssage);
         while(option!=7){
             Scanner optionEntry = new Scanner(System.in);
-            option = optionEntry.nextInt();
-            switch (option){
-                case 1:
-                    System.out.println("Insira o valor para conversão:");
-                    coin.conversao("BRL","USD", optionEntry.nextDouble());
+            try {
+                option = optionEntry.nextInt();
+                switch (option){
+                    case 1:
+                        System.out.println("Insira o valor para conversão:");
+                        coin.conversao("BRL","USD", optionEntry.nextDouble());
+                        System.out.println(menssage);
+                        break;
+                    case 2:
+                        System.out.println("Insira o valor para conversão:");
+                        coin.conversao("USD","BRL", optionEntry.nextDouble());
+                        System.out.println(menssage);
+                        break;
+                    case 3:
+                        System.out.println("Insira o valor para conversão:");
+                        coin.conversao("ARS","USD", optionEntry.nextDouble());
+                        System.out.println(menssage);
+                        break;
+                    case 4:
+                        System.out.println("Insira o valor para conversão:");
+                        coin.conversao("USD","ARS", optionEntry.nextDouble());
+                        System.out.println(menssage);
+                        break;
+                    case 5:
+                        System.out.println("Insira o valor para conversão:");
+                        coin.conversao("EUR","USD", optionEntry.nextDouble());
+                        System.out.println(menssage);
+                        break;
+                    case 6:
+                        System.out.println("Insira o valor para conversão:");
+                        coin.conversao("USD","EUR", optionEntry.nextDouble());
+                        System.out.println(menssage);
+                        break;
+                }if ((option < 1) || (option > 7)) {
+                    System.out.println("Opção invalida.");
                     System.out.println(menssage);
-                    break;
-                case 2:
-                    System.out.println("Insira o valor para conversão:");
-                    coin.conversao("USD","BRL", optionEntry.nextDouble());
-                    System.out.println(menssage);
-                    break;
-                case 3:
-                    System.out.println("Insira o valor para conversão:");
-                    coin.conversao("ARS","USD", optionEntry.nextDouble());
-                    System.out.println(menssage);
-                    break;
-                case 4:
-                    System.out.println("Insira o valor para conversão:");
-                    coin.conversao("USD","ARS", optionEntry.nextDouble());
-                    System.out.println(menssage);
-                    break;
-                case 5:
-                    System.out.println("Insira o valor para conversão:");
-                    coin.conversao("EUR","USD", optionEntry.nextDouble());
-                    System.out.println(menssage);
-                    break;
-                case 6:
-                    System.out.println("Insira o valor para conversão:");
-                    coin.conversao("USD","EUR", optionEntry.nextDouble());
-                    System.out.println(menssage);
-                    break;
-            }if ((option < 1) || (option > 7)){
-                System.out.println("Opção invalida.");
+                }
+            }catch (Exception e){
+                System.out.println("Houve um erro na entrada de dados.");
                 System.out.println(menssage);
             }
         }
