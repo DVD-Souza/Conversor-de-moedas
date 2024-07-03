@@ -9,8 +9,9 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+
 public class ConversaoDeMoeda {
-    String apiKey = "66a39028a323ebdaccb55d3d";
+    String key = System.getenv("apiKey");
     @SerializedName("base_code")
     String countryCoin;
     @SerializedName("target_code")
@@ -37,7 +38,7 @@ public class ConversaoDeMoeda {
     }
 
     public void conversao(String originCoin, String convertedCoin,  double value) throws IOException, InterruptedException {
-        String endereco = "https://v6.exchangerate-api.com/v6/"+apiKey+"/pair/"+ originCoin +"/"+ convertedCoin +"/"+ value;
+        String endereco = "https://v6.exchangerate-api.com/v6/"+key+"/pair/"+ originCoin +"/"+ convertedCoin +"/"+ value;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endereco))
