@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 
 
 public class ConversaoDeMoeda {
-    String key = System.getenv("api_key");
+    String key = "66a39028a323ebdaccb55d3d";
     @SerializedName("base_code")
     String countryCoin;
     @SerializedName("target_code")
